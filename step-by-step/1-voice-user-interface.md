@@ -107,7 +107,7 @@ There are two parts to an Alexa skill.  The first part is the [Voice User Interf
     | Slot Type  | Description |
     | ------------- | ------------- |
     | **AMAZON.US_FIRST_NAME**  | Built-In Slot Type that is extended by us with some additional first names.|
-    | AMAZON.LAST_NAME | Last names |
+    | LAST_NAME | Last names |
     | LIST_OF_INFO_TYPES | Info types that can be searched for, example - twitter, github, linkedin |
     | WHAT_PHRASE | list of "what is" phrases that can be used to search, example "tell me", "give me", "what's","what is" |
     | WHO_PHRASE | list of "who is" phrases that can be used to search, example "who is", "find" |
