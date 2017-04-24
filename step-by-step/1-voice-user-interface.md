@@ -1,9 +1,9 @@
 # Build An Alexa Team Lookup Skill
-[![Voice User Interface](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/1-on._TTH_.png)](https://github.com/alexastaging/skill-sample-nodejs-team-lookup-staging/blob/master/step-by-step/1-voice-user-interface.md)[![Lambda Function](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/2-off._TTH_.png)](https://github.com/alexastaging/skill-sample-nodejs-team-lookup-staging/blob/master/step-by-step/2-lambda-function.md)[![Connect VUI to Code](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/3-off._TTH_.png)](https://github.com/alexastaging/skill-sample-nodejs-team-lookup-staging/blob/master/step-by-step/3-connect-vui-to-code.md)[![Testing](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/4-off._TTH_.png)](https://github.com/alexastaging/skill-sample-nodejs-team-lookup-staging/blob/master/step-by-step/4-testing.md)[![Customization](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/5-off._TTH_.png)](https://github.com/alexastaging/skill-sample-nodejs-team-lookup-staging/blob/master/step-by-step/5-customization.md)[![Publication](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/6-off._TTH_.png)](https://github.com/alexastaging/skill-sample-nodejs-team-lookup-staging/blob/master/step-by-step/6-publication.md)
+[![Voice User Interface](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/1-on._TTH_.png)](https://github.com/alexa/skill-sample-nodejs-team-lookup/blob/master/step-by-step/1-voice-user-interface.md)[![Lambda Function](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/2-off._TTH_.png)](https://github.com/alexa/skill-sample-nodejs-team-lookup/blob/master/step-by-step/2-lambda-function.md)[![Connect VUI to Code](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/3-off._TTH_.png)](https://github.com/alexa/skill-sample-nodejs-team-lookup/blob/master/step-by-step/3-connect-vui-to-code.md)[![Testing](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/4-off._TTH_.png)](https://github.com/alexa/skill-sample-nodejs-team-lookup/blob/master/step-by-step/4-testing.md)[![Customization](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/5-off._TTH_.png)](https://github.com/alexa/skill-sample-nodejs-team-lookup/blob/master/step-by-step/5-customization.md)[![Publication](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/6-off._TTH_.png)](https://github.com/alexa/skill-sample-nodejs-team-lookup/blob/master/step-by-step/6-publication.md)
 
 ## Setting up Your Voice User Interface
 
-There are two parts to an Alexa skill.  The first part is the [Voice User Interface (VUI)](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/defining-the-voice-interface).  This is where we define how we will handle a user's voice input, and which code should be executed when specific commands are uttered.  The second part is the actual code logic for our skill, and we will handle that in [the next step](https://github.com/alexastaging/skill-sample-nodejs-team-lookup-staging/blob/master/step-by-step/2-lambda-function.md) of this step-by-step guide.
+There are two parts to an Alexa skill.  The first part is the [Voice User Interface (VUI)](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/defining-the-voice-interface).  This is where we define how we will handle a user's voice input, and which code should be executed when specific commands are uttered.  The second part is the actual code logic for our skill, and we will handle that in [the next step](https://github.com/alexa/skill-sample-nodejs-team-lookup/blob/master/step-by-step/2-lambda-function.md) of this step-by-step guide.
 
 1.  **Go to the [Amazon Developer Portal](http://developer.amazon.com)**.  On the top right corner of the screen, click the **Sign In** button. </br>(If you don't already have an account, you will be able to create a new one for free.)
 
@@ -57,7 +57,7 @@ There are two parts to an Alexa skill.  The first part is the [Voice User Interf
 8. Click on **Code Editor** on the top left corner of the dashboard.
 ![Code Editor](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/1-8-skill-builder-code-editor.png)
 
-9. Replace the contents of the box containing by **copy-pasting** the contents of the [interaction-model.json](https://github.com/AlexaStaging/skill-sample-nodejs-team-lookup-staging/blob/master/speech-assets/interaction-model.json) file.
+9. Replace the contents of the box containing by **copy-pasting** the contents of the [interaction-model.json](https://github.com/alexa/skill-sample-nodejs-team-lookup/blob/master/speech-assets/interaction-model.json) file.
 ![Replace JSON](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/1-9-skill-builder-json-replace.png)
 10. Click on **Apply Changes**
 11. You will see the Skill Builder populate the intents and slot types for our skill on the left sidebar.
@@ -114,7 +114,7 @@ There are two parts to an Alexa skill.  The first part is the [Voice User Interf
 
 
 
-8.  If your interaction model builds successfully, click on **Configuration** button to move on to Configuration. In our next step of this guide, we will be creating our Lambda function in the AWS developer console, but keep this browser tab open, because we will be returning here on [Page #3: Connect VUI to Code](https://github.com/alexastaging/skill-sample-nodejs-team-lookup-staging/blob/master/step-by-step/3-connect-vui-to-code.md).
+8.  If your interaction model builds successfully, click on **Configuration** button to move on to Configuration. In our next step of this guide, we will be creating our Lambda function in the AWS developer console, but keep this browser tab open, because we will be returning here on [Page #3: Connect VUI to Code](https://github.com/alexa/skill-sample-nodejs-team-lookup/blob/master/step-by-step/3-connect-vui-to-code.md).
 ![](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/1-13-skill-builder-configuration.png)
 
     If you get an error from your interaction model, check through this list:
@@ -124,6 +124,6 @@ There are two parts to an Alexa skill.  The first part is the [Voice User Interf
     *  **Did you accidentally add any unwanted characters to the Interaction Model or Sample Utterances?**
 
 <br/><br/>
-[![Next: Lambda Function](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/buttons/button_next_lambda_function._TTH_.png)](https://github.com/alexastaging/skill-sample-nodejs-team-lookup-staging/blob/master/step-by-step/2-lambda-function.md)
+[![Next: Lambda Function](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/buttons/button_next_lambda_function._TTH_.png)](https://github.com/alexa/skill-sample-nodejs-team-lookup/blob/master/step-by-step/2-lambda-function.md)
 
 <img height="1" width="1" src="https://www.facebook.com/tr?id=1847448698846169&ev=PageView&noscript=1"/>
