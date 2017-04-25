@@ -7,30 +7,30 @@
 
 ## What You Will Learn
 
-In addition to the concepts listed below, the guide will walk you through the basics of how to build the skill using [AWS Lambda](http://aws.amazon.com/lambda), and [Alexa Skills Kit (ASK)](https://developer.amazon.com/alexa-skills-kit).
+In addition to the concepts listed below, the guide will walk you through the basics of how to build the skill using [AWS Lambda](http://aws.amazon.com/lambda), and the [Alexa Skills Kit (ASK)](https://developer.amazon.com/alexa-skills-kit).
 
-*  Introduces the new [Alexa Skill Builder](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/ask-define-the-vui-with-gui) (Beta) JSON schema
-* Voice User Interface (VUI) Design
-*  Skill Certification
-*  Session Attributes (to maintain context)
-*  State Management
+*  Introduction to the new [Alexa Skill Builder](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/ask-define-the-vui-with-gui) (Beta) JSON schema
+* Voice User Interface (VUI) design
+*  Skill certification
+*  Session attributes (to maintain context)
+*  State management
 *  SSML
 
 ### New Tips and Tricks
-As with any sample code, the idea here is also to encourage you to learn and explore new skill building concepts. Here are some new tips and tricks you’d be able to learn using the Team Lookup skill -
+As with any sample code, the idea here is also to encourage you to learn and explore new skill building concepts. Here are some new tips and tricks you’d be able to learn using the Team Lookup skill:
 
 
 1. Using the new [Alexa Skill Builder](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/ask-define-the-vui-with-gui) to build the interaction model.
 2. **Searching** a given dataset based with a given query.
 3. Using **session attributes** effectively to -
-	1. store **"last speech"** messages, so when the user asks information to be repeated, you can pull it from the session attributes.
-	2. add context by storing **"last search"** results in the session attributes. This enables contextual followup questions like “what’s his twitter”, or “give me her linkedin”.
-	3. store **"last intent"** for other logic processing when knowing what the user last requested is important.
+	1. Store **"last speech"** messages, so when the user asks information to be repeated, you can pull it from the session attributes.
+	2. Add context by storing **"last search"** results in the session attributes. This enables contextual followup questions like “what’s his twitter”, or “give me her linkedin”.
+	3. Store **"last intent"** for other logic processing when knowing what the user last requested is important.
 4. Sending **cards with images** to the Alexa companion app
-5. **Randomize help messages**, so there’s a bit of variety.
+5. **Randomize help messages** so there’s a bit of variety.
 6. **New helper functions** (Slow Spell,Pronouns, Random help message generator, and more)
 7. **Extending Custom Slots**
-8. Using custom slots for **commonly used phrases**, to reduce the number of sample utterances, making the interaction model easier to maintain.
+8. Using custom slots for **commonly used phrases** to reduce the number of sample utterances, making the interaction model easier to maintain.
 
 
 ## What You Will Need
@@ -57,19 +57,20 @@ The sample data included with this template for instance lets you search for Ale
 ## How the Template is Laid Out
 The code for the template is laid out in four sections:
 
-1. **Data and Text strings:** (Replace this data with your own): The first section includes the data and the text strings that you can replace with your data, to customize your skill, and include information about your team.
-2. **Skill Code - Intent Handlers:** The second section is the core part of the code that makes the skill work. This includes all the intent handlers, and any other supporting functions. Feel free to explore this section, while you  try to understand how things work, but be careful that editing this section may break your skill.
-3. **Generating Speech:** The third section includes all the functions that generate the output speech, that is what Alexa says back to the user.
-4. **Helper Functions:** Finally, the fourth section includes some helper functions. These are functions that perform one very specific small task. These are written in a way that they can be reused in any skill. Just copy/paste them in to your skill, and use away. You can find more of these
+1. **Data and text strings:** (Replace this data with your own): The first section includes the data and the text strings that you can replace with your data to customize your skill, and include information about your team.
+2. **Skill code - Intent Handlers:** The second section is the core part of the code that makes the skill work. This includes all the intent handlers, and any other supporting functions. Feel free to explore this section, while you  try to understand how things work, but be careful as editing this section may break your skill.
+3. **Generating speech:** The third section includes all the functions that generate the output speech, or what Alexa says back to the user.
+4. **Helper functions:** Finally, the fourth section includes some helper functions. These are functions that perform one very specific small task. These are written in a way that they can be reused in any skill. Just copy/paste them in to your skill, and use away. You can find more of these
 
-## Make it your own
-You can replace the sample data included in this template, and make it your own. See the customize section for more details and ideas on how.
+## Make It Your Own
+You can replace the sample data included in this template, and make it your own. See the [customization](https://github.com/alexa/skill-sample-nodejs-team-lookup/blob/master/step-by-step/5-customization.md) section for more details and ideas on how.
 
-**Scenario 1 - just replace the data, and publish:** Imagine you are real estate company, and would like your customers, and prospects to be able to find a local agent by just talking to Alexa. You can take this template, replace it with your data, and then publish it. So, now anyone with access to an Alexa device can just say - “*Alexa, ask my broker to find me an agent in New York*”.  
+**Scenario 1 - just replace the data, and publish:** Imagine you are a real estate company, and you'd like to enable your customers, and prospects to be able to find a local agent by just talking to Alexa. You can take this template, replace it with your data, and then publish it. Then anyone with access to an Alexa device can just say - “*Alexa, ask my broker to find me an agent in New York*”.  
 
-**Scenario 2 - replace the data, and use it privately:** While "Scenario 1" is an example of a use case where you would want to publish and make the skill available on the Alexa store, you could very well use it privately to look up information for your friends and family - "*Alexa, ask people finder what's jessica's twitter handle*"
+**Scenario 2 - replace the data, and use it privately:** The first scenario entails publishing your skill and making it available in the Alexa skills store. But you could also use your skill privately to look up information for your friends and family: "*Alexa, ask people finder what's jessica's twitter handle*"
 
-**Scenario 3 - replace the data, add more features, and publish:** Finally, of course you can use it as a base to build on top of, say by adding more information types like email, Instagram. You could also add search by geo-location, so it would return results for people who are currently in a given city.
+**Scenario 3 - replace the data, add more features, and publish:** Finally, you can also use the sample code as a base and build up - say, by adding more information types like email and Instagram handles. You could also add search by geolocation, so it would return results for people who are currently in a given city.
+
 
 We can't wait to see what you build. Let us know if you have any questions/feedback at [@AlexaDevs](https://twitter.com/alexadevs).
 
