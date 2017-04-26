@@ -92,7 +92,7 @@ There are two parts to an Alexa skill.  The first part is the [Voice User Interf
 
     | Slot Type  | Description |
     | ------------- | ------------- |
-    | AMAZON.Helpntent  | Provide help about how to use the skill.|
+    | AMAZON.HelpIntent  | Provide help about how to use the skill.|
     | AMAZON.CancelIntent | Let the user cancel a transaction or task (but remain in the skill), or let the user completely exit the skill |
     | AMAZON.YesIntent | Let the user provide a positive response to a yes/no question for confirmation. |
     | AMAZON.NoIntent | Let the user provide a negative response to a yes/no question for confirmation. |
