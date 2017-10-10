@@ -68,7 +68,8 @@ var states = {
 const newSessionHandlers = {
 	"LaunchRequest": function() {
 		this.handler.state = states.SEARCHMODE;
-		this.emit(":ask", WELCOME_MESSAGE, getGenericHelpMessage(data));
+		this.response.speak(WELCOME_MESSAGE).listen(getGenericHelpMessage(data));
+		this.emit(':responseReady');		
 	},
 	"SearchByNameIntent": function() {
 		console.log("SEARCH INTENT");
@@ -77,7 +78,8 @@ const newSessionHandlers = {
 	},
 	"TellMeMoreIntent": function() {
 		this.handler.state = states.SEARCHMODE;
-		this.emit(":ask", WELCOME_MESSAGE, getGenericHelpMessage(data));
+		this.response.speak(WELCOME_MESSAGE).listen(getGenericHelpMessage(data));
+		this.emit(':responseReady');	
 	},
 	"TellMeThisIntent": function() {
 		this.handler.state = states.SEARCHMODE;
@@ -88,27 +90,34 @@ const newSessionHandlers = {
 		this.emitWithState("SearchByInfoTypeIntent");
 	},
 	"AMAZON.YesIntent": function() {
-		this.emit(":ask", getGenericHelpMessage(data), getGenericHelpMessage(data));
+		this.response.speak(getGenericHelpMessage(data)).listen(getGenericHelpMessage(data));
+		this.emit(':responseReady');			
 	},
 	"AMAZON.NoIntent": function() {
-		this.emit(":tell", SHUTDOWN_MESSAGE);
+		this.response.speak(SHUTDOWN_MESSAGE);
+		this.emit(':responseReady');			
 	},
 	"AMAZON.RepeatIntent": function() {
-		this.emit(":ask", HELP_MESSAGE, getGenericHelpMessage(data));
+		this.response.speak(HELP_MESSAGE).listen(getGenericHelpMessage(data));
+		this.emit(':responseReady');			
 	},
 	"AMAZON.StopIntent": function() {
-		this.emit(":tell", EXIT_SKILL_MESSAGE);
+		this.response.speak(EXIT_SKILL_MESSAGE);
+		this.emit(':responseReady');			
 	},
 	"AMAZON.CancelIntent": function() {
-		this.emit(":tell", EXIT_SKILL_MESSAGE);
+		this.response.speak(EXIT_SKILL_MESSAGE);
+		this.emit(':responseReady');			
 	},
 	"AMAZON.StartOverIntent": function() {
 		this.handler.state = states.SEARCHMODE;
 		var output = "Ok, starting over." + getGenericHelpMessage(data);
-		this.emit(":ask", output, output);
+		this.response.speak(output).listen(output);
+		this.emit(':responseReady');			
 	},
 	"AMAZON.HelpIntent": function() {
-		this.emit(":ask", HELP_MESSAGE + getGenericHelpMessage(data), getGenericHelpMessage(data));
+		this.response.speak(HELP_MESSAGE + getGenericHelpMessage(data)).listen(getGenericHelpMessage(data));
+		this.emit(':responseReady');			
 	},
 	"SessionEndedRequest": function() {
 		this.emit("AMAZON.StopIntent");
@@ -120,10 +129,12 @@ const newSessionHandlers = {
 };
 var startSearchHandlers = Alexa.CreateStateHandler(states.SEARCHMODE, {
 	"AMAZON.YesIntent": function() {
-		this.emit(":ask", NEW_SEARCH_MESSAGE, NEW_SEARCH_MESSAGE);
+		this.response.speak(NEW_SEARCH_MESSAGE).listen(NEW_SEARCH_MESSAGE);
+		this.emit(':responseReady');			
 	},
 	"AMAZON.NoIntent": function() {
-		this.emit(":tell", SHUTDOWN_MESSAGE);
+		this.response.speak(SHUTDOWN_MESSAGE);
+		this.emit(':responseReady');			
 	},
 	"AMAZON.RepeatIntent": function() {
 		var output;
@@ -155,25 +166,30 @@ var startSearchHandlers = Alexa.CreateStateHandler(states.SEARCHMODE, {
 		this.emitWithState("TellMeMoreIntent");
 	},
 	"AMAZON.HelpIntent": function() {
-		this.emit(":ask", getGenericHelpMessage(data), getGenericHelpMessage(data));
+		this.response.speak(getGenericHelpMessage(data)).listen(getGenericHelpMessage(data));
+		this.emit(':responseReady');			
 	},
 	"AMAZON.StopIntent": function() {
-		this.emit(":tell", EXIT_SKILL_MESSAGE);
+		this.response.speak(EXIT_SKILL_MESSAGE);
+		this.emit(':responseReady');			
 	},
 	"AMAZON.CancelIntent": function() {
-		this.emit(":tell", EXIT_SKILL_MESSAGE);
+		this.response.speak(EXIT_SKILL_MESSAGE);
+		this.emit(':responseReady');			
 	},
 	"AMAZON.StartOverIntent": function() {
 		this.handler.state = states.SEARCHMODE;
 		var output = "Ok, starting over." + getGenericHelpMessage(data);
-		this.emit(":ask", output, output);
+		this.response.speak(output).listen(output);
+		this.emit(':responseReady');			
 	},
 	"SessionEndedRequest": function() {
 		this.emit("AMAZON.StopIntent");
 	},
 	"Unhandled": function() {
 		console.log("Unhandled intent in startSearchHandlers");
-		this.emit(":ask", SEARCH_STATE_HELP_MESSAGE, SEARCH_STATE_HELP_MESSAGE);
+		this.response.speak(SEARCH_STATE_HELP_MESSAGE).listen(SEARCH_STATE_HELP_MESSAGE);
+		this.emit(':responseReady');			
 	}
 });
 var multipleSearchResultsHandlers = Alexa.CreateStateHandler(states.MULTIPLE_RESULTS, {
@@ -181,17 +197,21 @@ var multipleSearchResultsHandlers = Alexa.CreateStateHandler(states.MULTIPLE_RES
 	"AMAZON.StartOverIntent": function() {
 		this.handler.state = states.SEARCHMODE;
 		var output = "Ok, starting over." + getGenericHelpMessage(data);
-		this.emit(":ask", output, output);
+		this.response.speak(output).listen(output);
+		this.emit(':responseReady');			
 	},
 	"AMAZON.YesIntent": function() {
 		var output = "Hmm. I think you said - yes, but can you please say the name of the person you'd like to learn more about?";
-		this.emit(":ask", output, output);
+		this.response.speak(output).listen(output);
+		this.emit(':responseReady');			
 	},
 	"AMAZON.NoIntent": function() {
-		this.emit(":tell", SHUTDOWN_MESSAGE);
+		this.response.speak(SHUTDOWN_MESSAGE);
+		this.emit(':responseReady');			
 	},
 	"AMAZON.RepeatIntent": function() {
-		this.emit(":ask",this.attributes.lastSearch.lastSpeech, this.attributes.lastSearch.lastSpeech);
+		this.response.speak(this.attributes.lastSearch.lastSpeech).listen(this.attributes.lastSearch.lastSpeech);
+		this.emit(':responseReady');			
 	},
 	"SearchByNameIntent": function() {
 		var slots = this.event.request.intent.slots;
@@ -220,41 +240,46 @@ var multipleSearchResultsHandlers = Alexa.CreateStateHandler(states.MULTIPLE_RES
 			console.log("multiple results were found again");
 			this.handler.state = states.MULTIPLE_RESULTS;
 			output = this.attributes.lastSearch.lastSpeech;
-			this.emit(":ask",output);
+			this.response.speak(output).listen(output);
 		} else if (searchResults.count == 1) { //one result found
 			this.attributes.lastSearch = searchResults;
 			lastSearch = this.attributes.lastSearch;
 			this.handler.state = states.DESCRIPTION;
 			output = generateSearchResultsMessage(searchQuery,searchResults.results);
 			this.attributes.lastSearch.lastSpeech = output;
-			this.emit(":ask", output);
+			this.response.speak(output).listen(output);
 
 		} else { //no match found
 			lastSearch = this.attributes.lastSearch;
 			var listOfPeopleFound = loopThroughArrayOfObjects(lastSearch.results);
 			speechOutput = MULTIPLE_RESULTS_STATE_HELP_MESSAGE + ", " + listOfPeopleFound;
-			this.emit(":ask", speechOutput);
+			this.response.speak(speechOutput).listen(speechOutput);
 		}
+		this.emit(':responseReady');			
 	},
 	"SearchByCityIntent": function() {
 		this.handler.state = states.SEARCHMODE;
 		this.emitWithState("SearchByCityIntent");
 	},
 	"AMAZON.HelpIntent": function() {
-		this.emit(":ask", MULTIPLE_RESULTS_STATE_HELP_MESSAGE, MULTIPLE_RESULTS_STATE_HELP_MESSAGE);
+		this.response.speak(MULTIPLE_RESULTS_STATE_HELP_MESSAGE).listen(MULTIPLE_RESULTS_STATE_HELP_MESSAGE);
+		this.emit(':responseReady');			
 	},
 	"AMAZON.StopIntent": function() {
-		this.emit(":tell", EXIT_SKILL_MESSAGE);
+		this.response.speak(EXIT_SKILL_MESSAGE);
+		this.emit(':responseReady');			
 	},
 	"AMAZON.CancelIntent": function() {
-		this.emit(":tell", EXIT_SKILL_MESSAGE);
+		this.response.speak(EXIT_SKILL_MESSAGE);
+		this.emit(':responseReady');			
 	},
 	"SessionEndedRequest": function() {
 		this.emit("AMAZON.StopIntent");
 	},
 	"Unhandled": function() {
 		console.log("Unhandled intent in multipleSearchResultsHandlers");
-		this.emit(":ask", MULTIPLE_RESULTS_STATE_HELP_MESSAGE, MULTIPLE_RESULTS_STATE_HELP_MESSAGE);
+		this.response.speak(MULTIPLE_RESULTS_STATE_HELP_MESSAGE).listen(MULTIPLE_RESULTS_STATE_HELP_MESSAGE);
+		this.emit(':responseReady');			
 	}
 });
 var descriptionHandlers = Alexa.CreateStateHandler(states.DESCRIPTION, {
@@ -273,14 +298,17 @@ var descriptionHandlers = Alexa.CreateStateHandler(states.DESCRIPTION, {
 			console.log("the contact you're trying to find more info about is " + person.firstName);
 			this.handler.state = states.SEARCHMODE;
 			this.attributes.lastSearch.lastSpeech = speechOutput;
-			this.emit(":askWithCard", speechOutput, repromptSpeech, cardContent.title, cardContent.body, cardContent.image);
+			this.response.cardRenderer(cardContent.title, cardContent.body, cardContent.image);
+			this.response.speak(speechOutput).listen(repromptSpeech);
 		}
 		else{
 			speechOutput = getGenericHelpMessage(data);
 			repromptSpeech = getGenericHelpMessage(data);
 			this.handler.state = states.SEARCHMODE;
-			this.emit(":ask", speechOutput, repromptSpeech);
+			this.response.speak(speechOutput).listen(repromptSpeech);
 		}
+
+		this.emit(':responseReady');			
 	},
 	"TellMeThisIntent": function() {
 		var slots = this.event.request.intent.slots;
@@ -299,15 +327,17 @@ var descriptionHandlers = Alexa.CreateStateHandler(states.DESCRIPTION, {
 			repromptSpeech = "Would you like to find another evangelist? Say yes or no";
 			this.handler.state = states.SEARCHMODE;
 			this.attributes.lastSearch.lastSpeech = speechOutput;
-			this.emit(":askWithCard", speechOutput, repromptSpeech, cardContent.title, cardContent.body, cardContent.image);
+			this.response.cardRenderer(cardContent.title, cardContent.body, cardContent.image);
+			this.response.speak(speechOutput).listen(repromptSpeech);
 		} else {
 			//not a valid slot. no card needs to be set up. respond with simply a voice response.
 			speechOutput = generateSearchHelpMessage(person.gender);
 			repromptSpeech = "You can ask me - what's " + genderize("his-her", person.gender) + " twitter, or give me " + genderize("his-her", person.gender) + " git-hub username";
 			this.attributes.lastSearch.lastSpeech = speechOutput;
 			this.handler.state = states.SEARCHMODE;
-			this.emit(":ask", speechOutput, repromptSpeech);
+			this.response.speak(speechOutput).listen(repromptSpeech);
 		}
+		this.emit(':responseReady');					
 	},
 	"SearchByNameIntent": function() {
 		searchByNameIntentHandler.call(this);
@@ -317,27 +347,33 @@ var descriptionHandlers = Alexa.CreateStateHandler(states.DESCRIPTION, {
 	},
 	"AMAZON.HelpIntent": function() {
 		var person = this.attributes.lastSearch.results[0];
-		this.emit(":ask", generateNextPromptMessage(person,"current"), generateNextPromptMessage(person,"current"));
+		this.response.speak(generateNextPromptMessage(person,"current")).listen(generateNextPromptMessage(person,"current"));
+		this.emit(':responseReady');
 	},
 	"AMAZON.StopIntent": function() {
-		this.emit(":tell", EXIT_SKILL_MESSAGE);
+		this.response.speak(EXIT_SKILL_MESSAGE);
+		this.emit(':responseReady');
 	},
 	"AMAZON.CancelIntent": function() {
-		this.emit(":tell", EXIT_SKILL_MESSAGE);
+		this.response.speak(EXIT_SKILL_MESSAGE);
+		this.emit(':responseReady');
 	},
 	"AMAZON.NoIntent": function() {
-		this.emit(":tell", SHUTDOWN_MESSAGE);
+		this.response.speak(SHUTDOWN_MESSAGE);
+		this.emit(':responseReady');
 	},
 	"AMAZON.YesIntent": function() {
 		this.emit("TellMeMoreIntent");
 	},
 	"AMAZON.RepeatIntent": function() {
-		this.emit(":ask",this.attributes.lastSearch.lastSpeech, this.attributes.lastSearch.lastSpeech);
+		this.response.speak(this.attributes.lastSearch.lastSpeech).listen(this.attributes.lastSearch.lastSpeech);
+		this.emit(':responseReady');
 	},
 	"AMAZON.StartOverIntent": function() {
 		this.handler.state = states.SEARCHMODE;
 		var output = "Ok, starting over." + getGenericHelpMessage(data);
-		this.emit(":ask", output, output);
+		this.response.speak(output).listen(output);
+		this.emit(':responseReady');
 	},
 	"SessionEndedRequest": function() {
 		this.emit("AMAZON.StopIntent");
@@ -345,7 +381,9 @@ var descriptionHandlers = Alexa.CreateStateHandler(states.DESCRIPTION, {
 	"Unhandled": function() {
 		var person = this.attributes.lastSearch.results[0];
 		console.log("Unhandled intent in DESCRIPTION state handler");
-		this.emit(":ask", "Sorry, I don't know that" + generateNextPromptMessage(person,"general"), "Sorry, I don't know that" + generateNextPromptMessage(person,"general"));
+		this.response.speak("Sorry, I don't know that" + generateNextPromptMessage(person,"general"))
+		.listen("Sorry, I don't know that" + generateNextPromptMessage(person,"general"));
+		this.emit(':responseReady');
 	}
 });
 
@@ -420,7 +458,7 @@ function searchByNameIntentHandler(){
 			output = generateSearchResultsMessage(searchQuery,searchResults.results) + listOfPeopleFound + ". Who would you like to learn more about?";
 			this.handler.state = states.MULTIPLE_RESULTS; // change state to MULTIPLE_RESULTS
 			this.attributes.lastSearch.lastSpeech = output;
-			this.emit(":ask", output);
+			this.respone.speak(output).listen(output);
 		} else if (searchResults.count == 1) { //one result found
 			this.handler.state = states.DESCRIPTION; // change state to description
 			console.log("one match was found");
@@ -433,7 +471,7 @@ function searchByNameIntentHandler(){
 				console.log("no infoType was provided.");
 				output = generateSearchResultsMessage(searchQuery,searchResults.results);
 				this.attributes.lastSearch.lastSpeech = output;
-				this.emit(":ask", output);
+				this.respone.speak(output).listen(output);
 			}
 		}
 		else{//no match found
@@ -443,7 +481,7 @@ function searchByNameIntentHandler(){
 			output = generateSearchResultsMessage(searchQuery,searchResults.results);
 			this.attributes.lastSearch.lastSpeech = output;
 			// this.emit(":ask", generateSearchResultsMessage(searchQuery,searchResults.results));
-			this.emit(":ask", output);
+			this.respone.speak(output).listen(output);
 		}
 	}
 	else {
@@ -451,8 +489,10 @@ function searchByNameIntentHandler(){
 		console.log("searchQuery was  = " + searchQuery);
 		console.log("searchResults.results was  = " + searchResults);
 
-		this.emit(":ask", generateSearchResultsMessage(searchQuery,false));
+		this.respone.speak(generateSearchResultsMessage(searchQuery,false)).listen(generateSearchResultsMessage(searchQuery,false));
 	}
+
+	this.emit(':responseReady');
 }
 
 function searchByCityIntentHandler(){
@@ -477,15 +517,15 @@ function searchByCityIntentHandler(){
 			output = generateSearchResultsMessage(searchQuery,searchResults.results) + listOfPeopleFound + ". Who would you like to learn more about?";
 			this.handler.state = states.MULTIPLE_RESULTS; // change state to MULTIPLE_RESULTS
 			this.attributes.lastSearch.lastSpeech = output;
-			this.emit(":ask", output);
+			this.respone.speak(output).listen(output);
 		} else if (searchResults.count == 1) { //one result found
 			console.log("one match found");
 			this.handler.state = states.DESCRIPTION; // change state to description
 			output = generateSearchResultsMessage(searchQuery,searchResults.results);
 			this.attributes.lastSearch.lastSpeech = output;
 			// this.emit(":ask", generateSearchResultsMessage(searchQuery,searchResults.results));
-			this.emit(":ask", output);
-
+			this.respone.speak(output).listen(output);
+			
 		}
 		else{//no match found
 			console.log("no match found");
@@ -494,8 +534,8 @@ function searchByCityIntentHandler(){
 			output = generateSearchResultsMessage(searchQuery,searchResults.results);
 			this.attributes.lastSearch.lastSpeech = output;
 			// this.emit(":ask", generateSearchResultsMessage(searchQuery,searchResults.results));
-			this.emit(":ask", output);
-
+			this.respone.speak(output).listen(output);
+			
 		}
 	}
 	else {
@@ -503,8 +543,11 @@ function searchByCityIntentHandler(){
 		console.log("searchQuery was  = " + searchQuery);
 		console.log("searchResults.results was  = " + searchResults);
 
-		this.emit(":ask", generateSearchResultsMessage(searchQuery,false));
+		this.respone.speak(generateSearchResultsMessage(searchQuery,false)).listen(generateSearchResultsMessage(searchQuery,false));
 	}
+
+	this.emit(':responseReady');
+	
 }
 
 function searchByInfoTypeIntentHandler(){
@@ -534,7 +577,7 @@ function searchByInfoTypeIntentHandler(){
 			output = generateSearchResultsMessage(searchQuery,searchResults.results) + listOfPeopleFound + ". Who would you like to learn more about?";
 			this.handler.state = states.MULTIPLE_RESULTS; // change state to MULTIPLE_RESULTS
 			this.attributes.lastSearch.lastSpeech = output;
-			this.emit(":ask", output);
+			this.respone.speak(output).listen(output);
 		} else if (searchResults.count == 1) { //one result found
 			this.handler.state = states.DESCRIPTION; // change state to description
 			console.log("one match was found");
@@ -547,7 +590,8 @@ function searchByInfoTypeIntentHandler(){
 				var repromptSpeech = "Would you like to find another evangelist? Say yes or no";
 				this.attributes.lastSearch.lastSpeech = speechOutput;
 				this.handler.state = states.SEARCHMODE;
-				this.emit(":askWithCard", speechOutput, repromptSpeech, cardContent.title, cardContent.body, cardContent.image);
+				this.response.cardRenderer(cardContent.title, cardContent.body, cardContent.image);
+				this.respone.speak(speechOutput).listen(repromptSpeech);
 				// this.emitWithState("TellMeThisIntent");
 			}
 			else{
@@ -555,7 +599,7 @@ function searchByInfoTypeIntentHandler(){
 				output = generateSearchResultsMessage(searchQuery,searchResults.results);
 				this.attributes.lastSearch.lastSpeech = output;
 				// this.emit(":ask", generateSearchResultsMessage(searchQuery,searchResults.results));
-				this.emit(":ask", output);
+				this.respone.speak(output).listen(output);
 			}
 		}
 		else{//no match found
@@ -565,7 +609,7 @@ function searchByInfoTypeIntentHandler(){
 			output = generateSearchResultsMessage(searchQuery,searchResults.results);
 			this.attributes.lastSearch.lastSpeech = output;
 			// this.emit(":ask", generateSearchResultsMessage(searchQuery,searchResults.results));
-			this.emit(":ask", output);
+			this.respone.speak(output).listen(output);
 		}
 	}
 	else {
@@ -573,8 +617,11 @@ function searchByInfoTypeIntentHandler(){
 		console.log("searchQuery was  = " + searchQuery);
 		console.log("searchResults.results was  = " + searchResults);
 
-		this.emit(":ask", generateSearchResultsMessage(searchQuery,false));
+		this.respone.speak(generateSearchResultsMessage(searchQuery,false)).listen(generateSearchResultsMessage(searchQuery,false));
 	}
+
+	this.emit(':responseReady');
+	
 }
 // =====================================================================================================
 // ------------------------------- Section 3. Generating Speech Messages -------------------------------
