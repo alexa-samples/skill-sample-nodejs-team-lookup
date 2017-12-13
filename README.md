@@ -5,7 +5,7 @@
 
 # Get started
 
-The idea behind this new sample app is pretty simple. Wouldn’t it be cool if there was a way you could look up the contact information for people by just asking Alexa?
+The idea behind this new sample app is pretty simple. Wouldn’t it be cool if there was a way you could look up the contact information for people by just asking Alexa? The sample data included with this template lets you search for Alexa Evangelists and Solutions Architects by city, and their first/last names.
 
 If this is your first time here, you're new to Alexa Skills Development, or you're looking for more detailed instructions, click the **Get Started** button below:
 
@@ -25,10 +25,10 @@ Be sure to take a look at the [Additional Resources](#additional-resources) at t
 ### Usage
 
 ```text
-Alexa, ask Quizgame to start a quiz.
-	>> OK.  I will ask you 10 questions about the United States.
+Alexa, ask Alexa Team Lookup to find me someone in Boston.
+	>> rob mccauley is a Solutions Architect on the Alexa Skills Team, based out of boston.
 
-Alexa, start Quiz Game
+Alexa, start Alexa Team Lookup
 ```
 
 ### Repository Contents
@@ -51,13 +51,13 @@ Alexa, start Quiz Game
 1. Clone the repository.
 
 	```bash
-	$ git clone https://github.com/alexa/skill-sample-nodejs-quiz-game/
+	$ git clone https://github.com/alexa/skill-sample-nodejs-team-lookup/
 	```
 
 2. Initiatialize the [ASK CLI](https://developer.amazon.com/docs/smapi/quick-start-alexa-skills-kit-command-line-interface.html) by Navigating into the repository and running npm command: `ask init`. Follow the prompts.
 
 	```bash
-	$ cd skill-sample-nodejs-quiz-game
+	$ cd skill-sample-nodejs-team-lookup
 	$ ask init
 	```
 
@@ -86,7 +86,7 @@ ASK CLI will create the skill and the lambda function for you. The Lambda functi
 2. Simulate verbal interaction with your skill through the command line using the following example:
 
 	```bash
-	 $ ask simulate -l en-US -t "alexa, start quiz game"
+	 $ ask simulate -l en-US -t "alexa, start alexa team lookup"
 
 	 ✓ Simulation created for simulation id: 4a7a9ed8-94b2-40c0-b3bd-fb63d9887fa7
 	◡ Waiting for simulation response{
@@ -97,7 +97,7 @@ ASK CLI will create the skill and the lambda function for you. The Lambda functi
 3. Once the "Test" switch is enabled, your skill can be tested on devices associated with the developer account as well. Speak to Alexa from any enabled device, from your browser at [echosim.io](https://echosim.io/welcome), or through your Amazon Mobile App and say :
 
 	```text
-	Alexa, start quiz game
+	Alexa, start alexa team lookup
 	```
 
 ## Customization

@@ -68,6 +68,6 @@ You can replace the sample data included in this template, and make it your own.
 We can't wait to see what you build. Let us know if you have any questions/feedback at [@AlexaDevs](https://twitter.com/alexadevs).
 
 
-<a href="https://github.com/alexa/skill-sample-nodejs-audio-player/blob/master/single-stream/instructions/1-voice-user-interface.md"><img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/buttons/button_get_started._TTH_.png" /></a>
+<a ./1-voice-user-interface.md"><img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/buttons/button_get_started._TTH_.png" /></a>
 
 <img height="1" width="1" src="https://www.facebook.com/tr?id=1847448698846169&ev=PageView&noscript=1"/>
