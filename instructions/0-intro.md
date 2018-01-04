@@ -1,3 +1,7 @@
+# Build An Alexa Team Lookup Skill
+[![Voice User Interface](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/1-off._TTH_.png)](./1-voice-user-interface.md)[![Lambda Function](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/2-off._TTH_.png)](./2-lambda-function.md)[![Connect VUI to Code](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/3-off._TTH_.png)](./3-connect-vui-to-code.md)[![Testing](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/4-off._TTH_.png)](./4-testing.md)[![Customization](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/5-off._TTH_.png)](./5-customization.md)[![Publication](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/6-off._TTH_.png)](./6-publication.md)
+
+
 ## What You Will Learn
 
 In addition to the concepts listed below, the guide will walk you through the basics of how to build the skill using [AWS Lambda](http://aws.amazon.com/lambda), and the [Alexa Skills Kit (ASK)](https://developer.amazon.com/alexa-skills-kit).
@@ -56,7 +60,7 @@ The code for the template is laid out in four sections:
 4. **Helper functions:** Finally, the fourth section includes some helper functions. These are functions that perform one very specific small task. These are written in a way that they can be reused in any skill. Just copy/paste them in to your skill, and use away. You can find more of these
 
 ## Make It Your Own
-You can replace the sample data included in this template, and make it your own. See the [customization](https://github.com/alexa/skill-sample-nodejs-team-lookup/blob/master/step-by-step/5-customization.md) section for more details and ideas on how.
+You can replace the sample data included in this template, and make it your own. See the [customization](./5-customization.md) section for more details and ideas on how.
 
 **Scenario 1 - just replace the data, and publish:** Imagine you are a real estate company, and you'd like to enable your customers, and prospects to be able to find a local agent by just talking to Alexa. You can take this template, replace it with your data, and then publish it. Then anyone with access to an Alexa device can just say - “*Alexa, ask my broker to find me an agent in New York*”.  
 
@@ -68,6 +72,6 @@ You can replace the sample data included in this template, and make it your own.
 We can't wait to see what you build. Let us know if you have any questions/feedback at [@AlexaDevs](https://twitter.com/alexadevs).
 
 
-<a ./1-voice-user-interface.md"><img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/buttons/button_get_started._TTH_.png" /></a>
+<a href="./1-voice-user-interface.md"><img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/buttons/button_get_started._TTH_.png" /></a>
 
 <img height="1" width="1" src="https://www.facebook.com/tr?id=1847448698846169&ev=PageView&noscript=1"/>
