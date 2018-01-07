@@ -3,78 +3,131 @@
 
 [![Voice User Interface](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/1-off._TTH_.png)](https://github.com/alexa/skill-sample-nodejs-team-lookup/blob/master/step-by-step/1-voice-user-interface.md)[![Lambda Function](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/2-off._TTH_.png)](https://github.com/alexa/skill-sample-nodejs-team-lookup/blob/master/step-by-step/2-lambda-function.md)[![Connect VUI to Code](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/3-off._TTH_.png)](https://github.com/alexa/skill-sample-nodejs-team-lookup/blob/master/step-by-step/3-connect-vui-to-code.md)[![Testing](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/4-off._TTH_.png)](https://github.com/alexa/skill-sample-nodejs-team-lookup/blob/master/step-by-step/4-testing.md)[![Customization](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/5-off._TTH_.png)](https://github.com/alexa/skill-sample-nodejs-team-lookup/blob/master/step-by-step/5-customization.md)[![Publication](https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/6-off._TTH_.png)](https://github.com/alexa/skill-sample-nodejs-team-lookup/blob/master/step-by-step/6-publication.md)
 
-<!--<a href="https://github.com/alexa/skill-sample-nodejs-team-lookup/blob/master/step-by-step/1-voice-user-interface.md"><img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/1-off._TTH_.png" /></a><a href="https://github.com/alexa/skill-sample-nodejs-team-lookup/blob/master/step-by-step/2-lambda-function.md"><img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/2-off._TTH_.png" /></a><a href="https://github.com/alexa/skill-sample-nodejs-team-lookup/blob/master/step-by-step/3-connect-vui-to-code.md"><img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/3-off._TTH_.png" /></a><a href="https://github.com/alexa/skill-sample-nodejs-team-lookup/blob/master/step-by-step/4-testing.md"><img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/4-off._TTH_.png" /></a><a href="https://github.com/alexa/skill-sample-nodejs-team-lookup/blob/master/step-by-step/5-customization.md"><img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/5-off._TTH_.png" /></a><a href="https://github.com/alexa/skill-sample-nodejs-team-lookup/blob/master/step-by-step/6-publication.md"><img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/navigation/6-off._TTH_.png" /></a>-->
+# Get started
 
-## What You Will Learn
+The idea behind this new sample app is pretty simple. Wouldn’t it be cool if there was a way you could look up the contact information for people by just asking Alexa? The sample data included with this template lets you search for Alexa Evangelists and Solutions Architects by city, and their first/last names.
 
-In addition to the concepts listed below, the guide will walk you through the basics of how to build the skill using [AWS Lambda](http://aws.amazon.com/lambda), and the [Alexa Skills Kit (ASK)](https://developer.amazon.com/alexa-skills-kit).
+If this is your first time here, you're new to Alexa Skills Development, or you're looking for more detailed instructions, click the **Get Started** button below:
 
-*  Introduction to the new [Alexa Skill Builder](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/ask-define-the-vui-with-gui) (Beta) JSON schema
-* Voice User Interface (VUI) design
-*  Skill certification
-*  Session attributes (to maintain context)
-*  State management
-*  SSML
-
-### New Tips and Tricks
-As with any sample code, the idea here is also to encourage you to learn and explore new skill building concepts. Here are some new tips and tricks you’d be able to learn using the Team Lookup skill:
+<p align='center'>
+<a href='./instructions/0-intro.md'><img src='https://camo.githubusercontent.com/db9b9ce26327ad3bac57ec4daf0961a382d75790/68747470733a2f2f6d2e6d656469612d616d617a6f6e2e636f6d2f696d616765732f472f30312f6d6f62696c652d617070732f6465782f616c6578612f616c6578612d736b696c6c732d6b69742f7475746f7269616c732f67656e6572616c2f627574746f6e732f627574746f6e5f6765745f737461727465642e5f5454485f2e706e67'></a>
+</p>
 
 
-1. Using the new [Alexa Skill Builder](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/ask-define-the-vui-with-gui) to build the interaction model.
-2. **Searching** a given dataset based with a given query.
-3. Using **session attributes** effectively to -
-	1. Store **"last speech"** messages, so when the user asks information to be repeated, you can pull it from the session attributes.
-	2. Add context by storing **"last search"** results in the session attributes. This enables contextual followup questions like “what’s his twitter”, or “give me her linkedin”.
-	3. Store **"last intent"** for other logic processing when knowing what the user last requested is important.
-4. Sending **cards with images** to the Alexa companion app
-5. **Randomize help messages** so there’s a bit of variety.
-6. **New helper functions** (Slow Spell,Pronouns, Random help message generator, and more)
-7. **Extending Custom Slots**
-8. Using custom slots for **commonly used phrases** to reduce the number of sample utterances, making the interaction model easier to maintain.
+Be sure to take a look at the [Additional Resources](#additional-resources) at the bottom of this page!
 
 
-## What You Will Need
-*  [Amazon Developer Portal Account](http://developer.amazon.com)
-*  [Amazon Web Services Account](http://aws.amazon.com/)
-*  The sample code on [GitHub](https://github.com/alexa/skill-sample-nodejs-team-lookup).
-*  Simple graphical editing tool (to create an icon for your skill)
-
-## What Your Skill Will Do
-
-An Alexa skill built using the Alexa Node SDK, that lets you find information about Alexa Evangelists and Solutions Architects.
-
-The idea behind this new sample app is pretty simple. Wouldn’t it be cool if there was a way you could look up the contact information for people by just asking Alexa?
-
-The sample data included with this template for instance lets you search for Alexa Evangelists and Solutions Architects by city, and their first/last names. So, you could say “find me an evangelist in Seattle”, and it would respond with  the name of the evangelist/s, along with their Twitter, LinkedIn, and GitHub handles.
+## About
+**Note:** The rest of this readme assumes you have your developer environment ready to go and that you have some familiarity with CLI (Command Line Interface) Tools, [AWS](https://aws.amazon.com/), and the [ASK Developer Portal](https://developer.amazon.com/alexa-skills-kit). If not, [click here](./instructions/0-intro.md) for a more detailed walkthrough.
 
 
-**Here are some things you can say** -
-1. Alexa, ask team lookup to find me an evangelist in seattle
-2. Alexa, ask team lookup who is dave
-3. Alexa, ask team lookup for amit’s twitter handle
+
+### Usage
+
+```text
+Alexa, ask Alexa Team Lookup to find me someone in Boston.
+	>> rob mccauley is a Solutions Architect on the Alexa Skills Team, based out of boston.
+
+Alexa, start Alexa Team Lookup
+```
+
+### Repository Contents
+* `/.ask`	- [ASK CLI (Command Line Interface) Configuration](https://developer.amazon.com/docs/smapi/ask-cli-intro.html)	 
+* `/lambda/custom` - Back-End Logic for the Alexa Skill hosted on [AWS Lambda](https://aws.amazon.com/lambda/)
+* `/models` - Voice User Interface and Language Specific Interaction Models
+* `/instructions` - Step-by-Step Instructions for Getting Started
+* `skill.json`	- [Skill Manifest](https://developer.amazon.com/docs/smapi/skill-manifest.html)
+
+## Setup w/ ASK CLI
+
+### Pre-requisites
+
+* Node.js (> v4.3)
+* Register for an [AWS Account](https://aws.amazon.com/)
+* Register for an [Amazon Developer Account](https://developer.amazon.com/)
+* Install and Setup [ASK CLI](https://developer.amazon.com/docs/smapi/quick-start-alexa-skills-kit-command-line-interface.html)
+
+### Installation
+1. Clone the repository.
+
+	```bash
+	$ git clone https://github.com/alexa/skill-sample-nodejs-team-lookup/
+	```
+
+2. Initiatialize the [ASK CLI](https://developer.amazon.com/docs/smapi/quick-start-alexa-skills-kit-command-line-interface.html) by Navigating into the repository and running npm command: `ask init`. Follow the prompts.
+
+	```bash
+	$ cd skill-sample-nodejs-team-lookup
+	$ ask init
+	```
+
+3. Install npm dependencies by navigating into the `/lambda` directory and running the npm command: `npm install`
+
+	```bash
+	$ cd lambda/custom
+	$ npm install
+	```
 
 
-## How the Template is Laid Out
-The code for the template is laid out in four sections:
+### Deployment
 
-1. **Data and text strings:** (Replace this data with your own): The first section includes the data and the text strings that you can replace with your data to customize your skill, and include information about your team.
-2. **Skill code - Intent Handlers:** The second section is the core part of the code that makes the skill work. This includes all the intent handlers, and any other supporting functions. Feel free to explore this section, while you  try to understand how things work, but be careful as editing this section may break your skill.
-3. **Generating speech:** The third section includes all the functions that generate the output speech, or what Alexa says back to the user.
-4. **Helper functions:** Finally, the fourth section includes some helper functions. These are functions that perform one very specific small task. These are written in a way that they can be reused in any skill. Just copy/paste them in to your skill, and use away. You can find more of these
+ASK CLI will create the skill and the lambda function for you. The Lambda function will be created in ```us-east-1 (Northern Virginia)``` by default.
 
-## Make It Your Own
-You can replace the sample data included in this template, and make it your own. See the [customization](https://github.com/alexa/skill-sample-nodejs-team-lookup/blob/master/step-by-step/5-customization.md) section for more details and ideas on how.
+1. Deploy the skill and the lambda function in one step by running the following command:
 
-**Scenario 1 - just replace the data, and publish:** Imagine you are a real estate company, and you'd like to enable your customers, and prospects to be able to find a local agent by just talking to Alexa. You can take this template, replace it with your data, and then publish it. Then anyone with access to an Alexa device can just say - “*Alexa, ask my broker to find me an agent in New York*”.  
+	```bash
+	$ ask deploy
+	```
 
-**Scenario 2 - replace the data, and use it privately:** The first scenario entails publishing your skill and making it available in the Alexa skills store. But you could also use your skill privately to look up information for your friends and family: "*Alexa, ask people finder what's jessica's twitter handle*"
+### Testing
 
-**Scenario 3 - replace the data, add more features, and publish:** Finally, you can also use the sample code as a base and build up - say, by adding more information types like email and Instagram handles. You could also add search by geolocation, so it would return results for people who are currently in a given city.
+1. To test, you need to login to Alexa Developer Console, and enable the "Test" switch on your skill from the "Test" Tab.
 
+2. Simulate verbal interaction with your skill through the command line using the following example:
 
-We can't wait to see what you build. Let us know if you have any questions/feedback at [@AlexaDevs](https://twitter.com/alexadevs).
+	```bash
+	 $ ask simulate -l en-US -t "alexa, start alexa team lookup"
 
-<br/>
-<a href="https://github.com/alexa/skill-sample-nodejs-team-lookup/blob/master/step-by-step/1-voice-user-interface.md"><img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/general/buttons/button_get_started._TTH_.png" /></a>
+	 ✓ Simulation created for simulation id: 4a7a9ed8-94b2-40c0-b3bd-fb63d9887fa7
+	◡ Waiting for simulation response{
+	  "status": "SUCCESSFUL",
+	  ...
+	 ```
 
-<img height="1" width="1" src="https://www.facebook.com/tr?id=1847448698846169&ev=PageView&noscript=1"/>
+3. Once the "Test" switch is enabled, your skill can be tested on devices associated with the developer account as well. Speak to Alexa from any enabled device, from your browser at [echosim.io](https://echosim.io/welcome), or through your Amazon Mobile App and say :
+
+	```text
+	Alexa, start alexa team lookup
+	```
+
+## Customization
+
+1. ```./skill.json```
+
+   Change the skill name, example phrase, icons, testing instructions etc ...
+
+   Remember that many information is locale-specific and must be changed for each locale (en-GB and en-US)
+
+   See the Skill [Manifest Documentation](https://developer.amazon.com/docs/smapi/skill-manifest.html) for more information.
+
+2. ```./lambda/custom/index.js```
+
+   Modify messages, and facts from the source code to customize the skill.
+
+3. ```./models/*.json```
+
+	Change the model definition to replace the invocation name and the sample phrase for each intent.  Repeat the operation for each locale you are planning to support.
+
+## Additional Resources
+
+### Community
+* [Amazon Developer Forums](https://forums.developer.amazon.com/spaces/165/index.html) - Join the conversation!
+* [Hackster.io](https://www.hackster.io/amazon-alexa) - See what others are building with Alexa.
+
+### Tutorials & Guides
+* [Voice Design Guide](https://developer.amazon.com/designing-for-voice/) - A great resource for learning conversational and voice user interface design.
+* [CodeAcademy: Learn Alexa](https://www.codecademy.com/learn/learn-alexa) - Learn how to build an Alexa Skill from within your browser with this beginner friendly tutorial on CodeAcademy!
+
+###Documentation
+* [Official Alexa Skills Kit Node.js SDK](https://www.npmjs.com/package/alexa-sdk) - The Official Node.js SDK Documentation
+*  [Official Alexa Skills Kit Documentation](https://developer.amazon.com/docs/ask-overviews/build-skills-with-the-alexa-skills-kit.html) - Official Alexa Skills Kit Documentation
