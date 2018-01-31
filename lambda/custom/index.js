@@ -230,31 +230,32 @@ let multipleSearchResultsHandlers = Alexa.CreateStateHandler(states.MULTIPLE_RES
 		console.log("Multiple results found. canSearch is set to = " + canSearch);
 		let speechOutput;
 
-		if (canSearch)
+         if (canSearch){
 			let searchQuery = slots[canSearch].value;
-		let searchResults = searchDatabase(this.attributes.lastSearch.results, searchQuery, canSearch);
-		let lastSearch;
-		let output;
+            let searchResults = searchDatabase(this.attributes.lastSearch.results, searchQuery, canSearch);
+            let lastSearch;
+            let output;
 
-		if (searchResults.count > 1) { //multiple results found again
-			console.log("multiple results were found again");
-			this.handler.state = states.MULTIPLE_RESULTS;
-			output = this.attributes.lastSearch.lastSpeech;
-			this.response.speak(output).listen(output);
-		} else if (searchResults.count == 1) { //one result found
-			this.attributes.lastSearch = searchResults;
-			lastSearch = this.attributes.lastSearch;
-			this.handler.state = states.DESCRIPTION;
-			output = generateSearchResultsMessage(searchQuery,searchResults.results);
-			this.attributes.lastSearch.lastSpeech = output;
-			this.response.speak(output).listen(output);
+            if (searchResults.count > 1) { //multiple results found again
+                console.log("multiple results were found again");
+                this.handler.state = states.MULTIPLE_RESULTS;
+                output = this.attributes.lastSearch.lastSpeech;
+                this.response.speak(output).listen(output);
+            } else if (searchResults.count == 1) { //one result found
+                this.attributes.lastSearch = searchResults;
+                lastSearch = this.attributes.lastSearch;
+                this.handler.state = states.DESCRIPTION;
+                output = generateSearchResultsMessage(searchQuery,searchResults.results);
+                this.attributes.lastSearch.lastSpeech = output;
+                this.response.speak(output).listen(output);
 
-		} else { //no match found
-			lastSearch = this.attributes.lastSearch;
-			let listOfPeopleFound = loopThroughArrayOfObjects(lastSearch.results);
-			speechOutput = MULTIPLE_RESULTS_STATE_HELP_MESSAGE + ", " + listOfPeopleFound;
-			this.response.speak(speechOutput).listen(speechOutput);
-		}
+            } else { //no match found
+                lastSearch = this.attributes.lastSearch;
+                let listOfPeopleFound = loopThroughArrayOfObjects(lastSearch.results);
+                speechOutput = MULTIPLE_RESULTS_STATE_HELP_MESSAGE + ", " + listOfPeopleFound;
+                this.response.speak(speechOutput).listen(speechOutput);
+            }
+        }
 		this.emit(':responseReady');			
 	},
 	"SearchByCityIntent": function() {
@@ -458,7 +459,7 @@ function searchByNameIntentHandler(){
 			output = generateSearchResultsMessage(searchQuery,searchResults.results) + listOfPeopleFound + ". Who would you like to learn more about?";
 			this.handler.state = states.MULTIPLE_RESULTS; // change state to MULTIPLE_RESULTS
 			this.attributes.lastSearch.lastSpeech = output;
-			this.respone.speak(output).listen(output);
+			this.response.speak(output).listen(output);
 		} else if (searchResults.count == 1) { //one result found
 			this.handler.state = states.DESCRIPTION; // change state to description
 			console.log("one match was found");
@@ -471,7 +472,7 @@ function searchByNameIntentHandler(){
 				console.log("no infoType was provided.");
 				output = generateSearchResultsMessage(searchQuery,searchResults.results);
 				this.attributes.lastSearch.lastSpeech = output;
-				this.respone.speak(output).listen(output);
+				this.response.speak(output).listen(output);
 			}
 		}
 		else{//no match found
@@ -481,7 +482,7 @@ function searchByNameIntentHandler(){
 			output = generateSearchResultsMessage(searchQuery,searchResults.results);
 			this.attributes.lastSearch.lastSpeech = output;
 			// this.emit(":ask", generateSearchResultsMessage(searchQuery,searchResults.results));
-			this.respone.speak(output).listen(output);
+			this.response.speak(output).listen(output);
 		}
 	}
 	else {
@@ -489,7 +490,7 @@ function searchByNameIntentHandler(){
 		console.log("searchQuery was  = " + searchQuery);
 		console.log("searchResults.results was  = " + searchResults);
 
-		this.respone.speak(generateSearchResultsMessage(searchQuery,false)).listen(generateSearchResultsMessage(searchQuery,false));
+		this.response.speak(generateSearchResultsMessage(searchQuery,false)).listen(generateSearchResultsMessage(searchQuery,false));
 	}
 
 	this.emit(':responseReady');
@@ -517,14 +518,14 @@ function searchByCityIntentHandler(){
 			output = generateSearchResultsMessage(searchQuery,searchResults.results) + listOfPeopleFound + ". Who would you like to learn more about?";
 			this.handler.state = states.MULTIPLE_RESULTS; // change state to MULTIPLE_RESULTS
 			this.attributes.lastSearch.lastSpeech = output;
-			this.respone.speak(output).listen(output);
+			this.response.speak(output).listen(output);
 		} else if (searchResults.count == 1) { //one result found
 			console.log("one match found");
 			this.handler.state = states.DESCRIPTION; // change state to description
 			output = generateSearchResultsMessage(searchQuery,searchResults.results);
 			this.attributes.lastSearch.lastSpeech = output;
 			// this.emit(":ask", generateSearchResultsMessage(searchQuery,searchResults.results));
-			this.respone.speak(output).listen(output);
+			this.response.speak(output).listen(output);
 			
 		}
 		else{//no match found
@@ -534,7 +535,7 @@ function searchByCityIntentHandler(){
 			output = generateSearchResultsMessage(searchQuery,searchResults.results);
 			this.attributes.lastSearch.lastSpeech = output;
 			// this.emit(":ask", generateSearchResultsMessage(searchQuery,searchResults.results));
-			this.respone.speak(output).listen(output);
+			this.response.speak(output).listen(output);
 			
 		}
 	}
@@ -543,7 +544,7 @@ function searchByCityIntentHandler(){
 		console.log("searchQuery was  = " + searchQuery);
 		console.log("searchResults.results was  = " + searchResults);
 
-		this.respone.speak(generateSearchResultsMessage(searchQuery,false)).listen(generateSearchResultsMessage(searchQuery,false));
+		this.response.speak(generateSearchResultsMessage(searchQuery,false)).listen(generateSearchResultsMessage(searchQuery,false));
 	}
 
 	this.emit(':responseReady');
@@ -577,7 +578,7 @@ function searchByInfoTypeIntentHandler(){
 			output = generateSearchResultsMessage(searchQuery,searchResults.results) + listOfPeopleFound + ". Who would you like to learn more about?";
 			this.handler.state = states.MULTIPLE_RESULTS; // change state to MULTIPLE_RESULTS
 			this.attributes.lastSearch.lastSpeech = output;
-			this.respone.speak(output).listen(output);
+			this.response.speak(output).listen(output);
 		} else if (searchResults.count == 1) { //one result found
 			this.handler.state = states.DESCRIPTION; // change state to description
 			console.log("one match was found");
@@ -591,7 +592,7 @@ function searchByInfoTypeIntentHandler(){
 				this.attributes.lastSearch.lastSpeech = speechOutput;
 				this.handler.state = states.SEARCHMODE;
 				this.response.cardRenderer(cardContent.title, cardContent.body, cardContent.image);
-				this.respone.speak(speechOutput).listen(repromptSpeech);
+				this.response.speak(speechOutput).listen(repromptSpeech);
 				// this.emitWithState("TellMeThisIntent");
 			}
 			else{
@@ -599,7 +600,7 @@ function searchByInfoTypeIntentHandler(){
 				output = generateSearchResultsMessage(searchQuery,searchResults.results);
 				this.attributes.lastSearch.lastSpeech = output;
 				// this.emit(":ask", generateSearchResultsMessage(searchQuery,searchResults.results));
-				this.respone.speak(output).listen(output);
+				this.response.speak(output).listen(output);
 			}
 		}
 		else{//no match found
@@ -609,7 +610,7 @@ function searchByInfoTypeIntentHandler(){
 			output = generateSearchResultsMessage(searchQuery,searchResults.results);
 			this.attributes.lastSearch.lastSpeech = output;
 			// this.emit(":ask", generateSearchResultsMessage(searchQuery,searchResults.results));
-			this.respone.speak(output).listen(output);
+			this.response.speak(output).listen(output);
 		}
 	}
 	else {
@@ -617,7 +618,7 @@ function searchByInfoTypeIntentHandler(){
 		console.log("searchQuery was  = " + searchQuery);
 		console.log("searchResults.results was  = " + searchResults);
 
-		this.respone.speak(generateSearchResultsMessage(searchQuery,false)).listen(generateSearchResultsMessage(searchQuery,false));
+		this.response.speak(generateSearchResultsMessage(searchQuery,false)).listen(generateSearchResultsMessage(searchQuery,false));
 	}
 
 	this.emit(':responseReady');
