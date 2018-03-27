@@ -1,7 +1,7 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "alexa team lookup",
+      "invocationName": "team lookup",
       "intents": [
         {
           "name": "AMAZON.CancelIntent",
