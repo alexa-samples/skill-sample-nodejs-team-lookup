@@ -48,10 +48,10 @@ const DESCRIPTION_STATE_HELP_MESSAGE = "Here are some things you can say: Tell m
 const MULTIPLE_RESULTS_STATE_HELP_MESSAGE = "Sorry, please say the first and last name of the person you'd like to learn more about";
 
 // This is the message use when the decides to end the search
-const SHUTDOWN_MESSAGE = "Ok.";
+const SHUTDOWN_MESSAGE = "Ok. ";
 
 //This is the message a user will hear when they try to cancel or stop the skill.
-const EXIT_SKILL_MESSAGE = "Ok.";
+const EXIT_SKILL_MESSAGE = "Ok. ";
 
 // =====================================================================================================
 // ------------------------------ Section 2. Skill Code - Intent Handlers  -----------------------------
@@ -111,7 +111,7 @@ const newSessionHandlers = {
 	},
 	"AMAZON.StartOverIntent": function() {
 		this.handler.state = states.SEARCHMODE;
-		var output = "Ok, starting over." + getGenericHelpMessage(data);
+		var output = "Ok, starting over. " + getGenericHelpMessage(data);
 		this.response.speak(output).listen(output);
 		this.emit(':responseReady');
 	},
@@ -179,7 +179,7 @@ let startSearchHandlers = Alexa.CreateStateHandler(states.SEARCHMODE, {
 	},
 	"AMAZON.StartOverIntent": function() {
 		this.handler.state = states.SEARCHMODE;
-		var output = "Ok, starting over." + getGenericHelpMessage(data);
+		var output = "Ok, starting over. " + getGenericHelpMessage(data);
 		this.response.speak(output).listen(output);
 		this.emit(':responseReady');
 	},
@@ -196,7 +196,7 @@ let multipleSearchResultsHandlers = Alexa.CreateStateHandler(states.MULTIPLE_RES
 
 	"AMAZON.StartOverIntent": function() {
 		this.handler.state = states.SEARCHMODE;
-		var output = "Ok, starting over." + getGenericHelpMessage(data);
+		var output = "Ok, starting over. " + getGenericHelpMessage(data);
 		this.response.speak(output).listen(output);
 		this.emit(':responseReady');
 	},
@@ -371,7 +371,7 @@ let descriptionHandlers = Alexa.CreateStateHandler(states.DESCRIPTION, {
 	},
 	"AMAZON.StartOverIntent": function() {
 		this.handler.state = states.SEARCHMODE;
-		var output = "Ok, starting over." + getGenericHelpMessage(data);
+		var output = "Ok, starting over. " + getGenericHelpMessage(data);
 		this.response.speak(output).listen(output);
 		this.emit(':responseReady');
 	},
